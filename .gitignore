@@ -1,0 +1,91 @@
+# Logs
+logs
+*.log*
+
+# Diagnostic reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+lib-cov
+coverage
+*.lcov
+.nyc_output
+
+# Grunt intermediate storage
+.grunt
+
+# Dependency directories
+bower_components
+node_modules/
+jspm_packages/
+web_modules/
+
+# Build and cache directories
+build/Release
+*.tsbuildinfo
+.npm
+.eslintcache
+.stylelintcache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+.node_repl_history
+*.tgz
+.yarn-integrity
+.env
+.env.docker
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+*.local
+.cache
+.parcel-cache
+.next
+out
+.nuxt
+dist
+dist-ssr
+.vuepress/dist
+.temp
+.docusaurus
+.serverless/
+.fusebox/
+.dynamodb/
+
+# Migrations
+dev.db
+dev.db-journal
+**/*.db
+
+# TernJS and VSCode
+.tern-port
+.vscode-test
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# General personal notes
+**/*.notes.md

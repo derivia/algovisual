@@ -1,0 +1,21 @@
+# Version System
+.git/
+
+# Node Installed Modules
+node_modules/
+
+# Editor
+.tern-port
+.vscode-test
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# General personal notes
+**/*.notes.md
