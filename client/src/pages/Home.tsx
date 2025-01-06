@@ -3,7 +3,7 @@ import { useAtom } from "jotai";
 import { arrayAtom } from "../utils/store";
 import Header from "../components/Header";
 import Visualization from "../components/Visualization";
-import Algorithms from "../components/Algorithms";
+import Options from "../components/Options";
 
 const Home = () => {
 	const [_array, setArray] = useAtom(arrayAtom);
@@ -19,7 +19,7 @@ const Home = () => {
 			<Header />
 			<div className="flex flex-1">
 				<Visualization />
-				<Algorithms />
+				<Options />
 			</div>
 		</div>
 	);
