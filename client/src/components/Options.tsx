@@ -5,7 +5,6 @@ import {
 	speedAtom,
 	isRunningAtom,
 	algorithmAtom,
-	barColorAtom,
 } from "../utils/store";
 import {
 	bubbleSort,
@@ -19,7 +18,6 @@ const CodeArea = () => {
 	const [speed, setSpeed] = useAtom(speedAtom);
 	const [isRunning, setIsRunning] = useAtom(isRunningAtom);
 	const [algorithm, setAlgorithm] = useAtom(algorithmAtom);
-	const [barColor, setBarColor] = useAtom(barColorAtom);
 	const [arraySize, setArraySize] = useState(20);
 
 	/*
@@ -62,21 +60,6 @@ const CodeArea = () => {
 						onChange={(e) => setArraySize(Number(e.target.value))}
 						className="p-2 bg-neutral-200 text-gray rounded"
 					/>
-					<button
-						onClick={generateArray}
-						className="ml-2 bg-neutral-200 text-gray px-4 py-2 rounded hover:bg-gray-900"
-					>
-						Generate
-					</button>
-				</div>
-				<div className="flex flex-row gap-2 items-center">
-					<label className="text-gray">Bar Color </label>
-					<input
-						type="color"
-						value={barColor}
-						onChange={(e) => setBarColor(e.target.value)}
-						className="p-1 bg-neutral-200 rounded"
-					/>
 				</div>
 				<div>
 					<label className="text-gray">Speed </label>
@@ -108,13 +91,22 @@ const CodeArea = () => {
 					<option value="quickSort">Quick Sort</option>
 					<option value="mergeSort">Merge Sort</option>
 				</select>
-				<button
-					onClick={handleExecute}
-					disabled={isRunning}
-					className="bg-neutral-200 text-gray px-4 py-2 rounded hover:bg-gray-900 disabled:opacity-50"
-				>
-					Execute
-				</button>
+				<div className="flex gap-4">
+					<button
+						onClick={generateArray}
+						disabled={isRunning}
+						className="bg-neutral-200 grow text-gray px-4 py-2 rounded hover:bg-gray-400 disabled:opacity-50"
+					>
+						Generate
+					</button>
+					<button
+						onClick={handleExecute}
+						disabled={isRunning}
+						className="bg-neutral-200 grow text-gray px-4 py-2 rounded hover:bg-gray-400 disabled:opacity-50"
+					>
+						Execute
+					</button>
+				</div>
 			</div>
 		</div>
 	);

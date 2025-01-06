@@ -1,15 +1,14 @@
 import { useEffect, useRef } from "react";
 import { useAtomValue } from "jotai";
-import { arrayAtom, barColorAtom } from "../utils/store";
-import { getContrastColor } from "../utils/colors";
+import { arrayAtom } from "../utils/store";
 
 const VisualizationArea = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const array = useAtomValue(arrayAtom);
-	const barColor = useAtomValue(barColorAtom);
+	const barColor = "#325196";
 
 	/**
-	 * Render canvas on startup array or barColor change
+	 * Render canvas on startup array
 	 *
 	 * Uses array atom with default value 20
 	 * Which can be changed on the Options area
@@ -24,8 +23,6 @@ const VisualizationArea = () => {
 		const maxValue = Math.max(...array);
 
 		ctx.clearRect(0, 0, width, height);
-		ctx.font = "10px Consolas";
-		ctx.textAlign = "center";
 
 		array.forEach((value, index) => {
 			const barHeight = (value / maxValue) * height;
@@ -33,13 +30,9 @@ const VisualizationArea = () => {
 			const y = height - barHeight;
 
 			ctx.fillStyle = barColor;
-			ctx.fillRect(x, y, barWidth - 2, barHeight);
-
-			// @TODO: Some problems with this:
-			// ctx.fillStyle = getContrastColor(barColor);
-			// ctx.fillText(value.toString(), x + barWidth / 2 - 1, y + barHeight - 5);
+			ctx.fillRect(x, y, barWidth - 4, barHeight - 2);
 		});
-	}, [array, barColor]);
+	}, [array]);
 
 	return (
 		<div className="w-[65%] bg-neutral-500 p-4">

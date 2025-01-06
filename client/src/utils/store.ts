@@ -6,4 +6,3 @@ export const isRunningAtom = atom(false);
 export const algorithmAtom = atom<
 	"bubbleSort" | "insertionSort" | "quickSort" | "mergeSort"
 >("bubbleSort");
-export const barColorAtom = atom("#527852");
