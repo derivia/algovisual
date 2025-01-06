@@ -4,7 +4,12 @@ const Header = () => {
 	return (
 		<header className="bg-neutral-300 flex justify-between text-black p-4">
 			<h1 className="text-2xl font-bold drop-shadow-md italic">Algovisual</h1>
-			<Link target="_blank" to="https://github.com/derivia">
+			<Link
+				target="_blank"
+				to="https://github.com/derivia"
+				aria-label="GitHub Repository"
+				className="hover:opacity-70 transition-opacity"
+			>
 				<svg
 					height="32"
 					aria-hidden="true"
