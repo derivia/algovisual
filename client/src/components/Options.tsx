@@ -12,6 +12,7 @@ import {
 	quickSort,
 	mergeSort,
 } from "../utils/algorithms";
+import Slider from "./Slider";
 
 const CodeArea = () => {
 	const [array, setArray] = useAtom(arrayAtom);
@@ -47,32 +48,27 @@ const CodeArea = () => {
 	};
 
 	return (
-		<div className="w-[35%] bg-neutral-400 p-4">
-			<h2 className="text-xl font-semibold text-gray mb-4">Options</h2>
-			<div className="flex flex-col gap-4">
-				<div>
-					<label className="text-gray">Number of Bars </label>
-					<input
-						type="number"
-						min="5"
-						max="100"
+		<div className="w-[35%] text-lg boxShadow-l-md p-4">
+			<div className="flex flex-col gap-6">
+				<div className="flex flex-col">
+					<label className="text-gray">Bars</label>
+					<Slider
+						tabIndex={1}
+						onChangeFunction={setArraySize}
 						value={arraySize}
-						onChange={(e) => setArraySize(Number(e.target.value))}
-						className="p-2 bg-neutral-200 text-gray rounded"
 					/>
 				</div>
-				<div>
-					<label className="text-gray">Speed </label>
-					<select
-						value={speed}
-						onChange={(e) => setSpeed(Number(e.target.value))}
-						className="p-2 bg-neutral-200 text-gray rounded"
-					>
-						<option value="500">Slow</option>
-						<option value="100">Medium</option>
-						<option value="10">Fast</option>
-					</select>
-				</div>
+				<label className="text-gray">Speed</label>
+				<select
+					value={speed}
+					onChange={(e) => setSpeed(Number(e.target.value))}
+					className="p-2 bg-gray-300 text-gray rounded hover:cursor-pointer hover:bg-gray-400"
+				>
+					<option value="500">Slow</option>
+					<option value="100">Medium</option>
+					<option value="10">Fast</option>
+				</select>
+				<label className="text-gray">Algorithm</label>
 				<select
 					value={algorithm}
 					onChange={(e) =>
@@ -84,7 +80,7 @@ const CodeArea = () => {
 								| "mergeSort",
 						)
 					}
-					className="p-2 bg-neutral-200 text-gray rounded"
+					className="p-2 bg-gray-300 text-gray rounded hover:cursor-pointer hover:bg-gray-400"
 				>
 					<option value="bubbleSort">Bubble Sort</option>
 					<option value="insertionSort">Insertion Sort</option>
@@ -95,14 +91,14 @@ const CodeArea = () => {
 					<button
 						onClick={generateArray}
 						disabled={isRunning}
-						className="bg-neutral-200 grow text-gray px-4 py-2 rounded hover:bg-gray-400 disabled:opacity-50"
+						className="bg-gray-300 grow text-gray px-4 py-2 rounded hover:bg-gray-400 disabled:opacity-50"
 					>
 						Generate
 					</button>
 					<button
 						onClick={handleExecute}
 						disabled={isRunning}
-						className="bg-neutral-200 grow text-gray px-4 py-2 rounded hover:bg-gray-400 disabled:opacity-50"
+						className="bg-gray-300 grow text-gray px-4 py-2 rounded hover:bg-gray-400 disabled:opacity-50"
 					>
 						Execute
 					</button>

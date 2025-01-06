@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useAtom } from "jotai";
 import { arrayAtom } from "../utils/store";
-import Header from "../components/Header";
+import Footer from "../components/Footer";
 import Visualization from "../components/Visualization";
 import Options from "../components/Options";
 
@@ -16,11 +16,11 @@ const Home = () => {
 
 	return (
 		<div className="flex flex-col w-full h-screen">
-			<Header />
-			<div className="flex flex-1">
+			<div className="flex flex-1 mt-12 self-center w-[95%]">
 				<Visualization />
 				<Options />
 			</div>
+			<Footer />
 		</div>
 	);
 };

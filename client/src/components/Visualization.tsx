@@ -35,10 +35,10 @@ const VisualizationArea = () => {
 	}, [array]);
 
 	return (
-		<div className="w-[65%] bg-neutral-500 p-4">
+		<div className="w-[65%] p-4">
 			<canvas
 				ref={canvasRef}
-				className="w-full h-[90%] px-3 py-4 bg-neutral-400 rounded-lg mb-12"
+				className="w-full h-[90%] px-3 py-4 bg-neutral-300 rounded-lg"
 				width={800}
 				height={400}
 			/>

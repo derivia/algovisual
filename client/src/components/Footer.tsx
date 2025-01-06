@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Footer = () => {
 	return (
-		<header className="bg-neutral-300 flex justify-between text-black p-4">
-			<h1 className="text-2xl font-bold drop-shadow-md italic">Algovisual</h1>
+		<header className="bg-transparent flex justify-between text-black h-fit py-1 px-3">
+			<h1 className="text-xl font-bold drop-shadow-md italic">Algovisual</h1>
 			<Link
 				target="_blank"
 				to="https://github.com/derivia"
 				aria-label="GitHub Repository"
-				className="hover:opacity-70 transition-opacity"
+				className="hover:opacity-70 mb-1 transition-opacity"
 			>
 				<svg
 					height="32"
@@ -25,4 +25,4 @@ const Header = () => {
 	);
 };
 
-export default Header;
+export default Footer;
