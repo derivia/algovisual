@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useAtom } from "jotai";
 import { arrayAtom } from "../utils/store";
-import Footer from "../components/Footer";
+import Header from "../components/Header";
 import Visualization from "../components/Visualization";
 import Options from "../components/Options";
+import Footer from "../components/Footer";
 
 const Home = () => {
 	const [_array, setArray] = useAtom(arrayAtom);
@@ -15,8 +16,9 @@ const Home = () => {
 	}, [setArray]);
 
 	return (
-		<div className="flex flex-col w-full h-screen">
-			<div className="flex flex-1 mt-12 self-center w-[95%]">
+		<div className="flex flex-col gap-2 h-screen w-full">
+			<Header />
+			<div className="flex h-[75%] w-[95%] gap-2 justify-center self-center">
 				<Visualization />
 				<Options />
 			</div>

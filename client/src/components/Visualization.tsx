@@ -4,43 +4,52 @@ import { arrayAtom } from "../utils/store";
 
 const VisualizationArea = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
+	const containerRef = useRef<HTMLDivElement>(null);
 	const array = useAtomValue(arrayAtom);
-	const barColor = "#325196";
+	const barColor = "#7291C9";
 
-	/**
-	 * Render canvas on startup array
-	 *
-	 * Uses array atom with default value 20
-	 * Which can be changed on the Options area
-	 */
 	useEffect(() => {
 		const canvas = canvasRef.current;
+		const container = containerRef.current;
 		const ctx = canvas?.getContext("2d");
-		if (!canvas || !ctx) return;
 
-		const { width, height } = canvas;
-		const barWidth = width / array.length;
-		const maxValue = Math.max(...array);
+		if (!canvas || !ctx || !container) return;
 
-		ctx.clearRect(0, 0, width, height);
+		const resizeCanvas = () => {
+			canvas.width = container.clientWidth;
+			canvas.height = container.clientHeight;
 
-		array.forEach((value, index) => {
-			const barHeight = (value / maxValue) * height;
-			const x = index * barWidth;
-			const y = height - barHeight;
+			const { width, height } = canvas;
+			const barWidth = width / array.length;
+			const maxValue = Math.max(...array);
 
-			ctx.fillStyle = barColor;
-			ctx.fillRect(x, y, barWidth - 4, barHeight - 2);
-		});
-	}, [array]);
+			ctx.clearRect(0, 0, width, height);
+
+			array.forEach((value, index) => {
+				const barHeight = (value / maxValue) * height;
+				const x = index * barWidth;
+				const y = height - barHeight;
+
+				ctx.fillStyle = barColor;
+				ctx.fillRect(x, y, barWidth - 4, barHeight - 2);
+			});
+		};
+
+		resizeCanvas();
+
+		window.addEventListener("resize", resizeCanvas);
+
+		return () => {
+			window.removeEventListener("resize", resizeCanvas);
+		};
+	}, [array, barColor]);
 
 	return (
-		<div className="w-[65%] p-4">
+		<div ref={containerRef} className="w-[65%] h-full relative">
 			<canvas
 				ref={canvasRef}
-				className="w-full h-[90%] px-3 py-4 bg-neutral-300 rounded-lg"
-				width={800}
-				height={400}
+				className="w-full h-full bg-blue-50 shadow-lg p-2 rounded-lg"
+				style={{ display: "block" }}
 			/>
 		</div>
 	);
