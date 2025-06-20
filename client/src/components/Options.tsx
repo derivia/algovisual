@@ -14,16 +14,13 @@ import {
 } from "../utils/algorithms";
 import Slider from "./Slider";
 
-const CodeArea = () => {
+const Options = () => {
 	const [array, setArray] = useAtom(arrayAtom);
 	const [speed, setSpeed] = useAtom(speedAtom);
 	const [isRunning, setIsRunning] = useAtom(isRunningAtom);
 	const [algorithm, setAlgorithm] = useAtom(algorithmAtom);
 	const [arraySize, setArraySize] = useState(20);
 
-	/*
-	 * Handle algorithm parsing based on execution status
-	 */
 	const handleExecute = async () => {
 		setIsRunning(true);
 		const sortingAlgorithm =
@@ -48,10 +45,10 @@ const CodeArea = () => {
 	};
 
 	return (
-		<div className="w-[25%] rounded-lg shadow-lg bg-blue-50 text-lg p-4">
+		<div className="w-[25%] rounded-lg shadow-lg bg-gray-800 border border-gray-700 text-lg p-4">
 			<div className="flex w-full flex-col gap-5">
 				<div className="flex flex-col">
-					<label className="text-gray">
+					<label className="text-gray-300">
 						Bars: <span>{arraySize}</span>
 					</label>
 					<Slider
@@ -60,17 +57,17 @@ const CodeArea = () => {
 						value={arraySize}
 					/>
 				</div>
-				<label className="text-gray">Speed</label>
+				<label className="text-gray-300">Speed</label>
 				<select
 					value={speed}
 					onChange={(e) => setSpeed(Number(e.target.value))}
-					className="p-2 bg-blue-200 text-gray rounded hover:cursor-pointer hover:bg-gray-400"
+					className="p-2 bg-gray-700 text-gray-300 rounded hover:cursor-pointer hover:bg-gray-600 border border-gray-600"
 				>
 					<option value="500">Slow</option>
 					<option value="100">Medium</option>
 					<option value="10">Fast</option>
 				</select>
-				<label className="text-gray">Algorithm</label>
+				<label className="text-gray-300">Algorithm</label>
 				<select
 					value={algorithm}
 					onChange={(e) =>
@@ -82,25 +79,25 @@ const CodeArea = () => {
 								| "mergeSort",
 						)
 					}
-					className="p-2 bg-blue-200 text-gray rounded hover:cursor-pointer hover:bg-gray-400"
+					className="p-2 bg-gray-700 text-gray-300 rounded hover:cursor-pointer hover:bg-gray-600 border border-gray-600"
 				>
 					<option value="bubbleSort">Bubble Sort</option>
 					<option value="insertionSort">Insertion Sort</option>
 					<option value="quickSort">Quick Sort</option>
 					<option value="mergeSort">Merge Sort</option>
 				</select>
-				<div className="flex flex-col mx-4 gap-4">
+				<div className="flex flex-col mx-4 gap-4 mt-4">
 					<button
 						onClick={generateArray}
 						disabled={isRunning}
-						className="bg-blue-200 shadow-md grow text-gray px-4 py-2 rounded hover:bg-gray-400 disabled:opacity-50"
+						className="bg-sky-500 shadow-md grow text-white px-4 py-2 rounded hover:bg-sky-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
 					>
 						Generate
 					</button>
 					<button
 						onClick={handleExecute}
 						disabled={isRunning}
-						className="bg-blue-200 shadow-md grow text-gray px-4 py-2 rounded hover:bg-gray-400 disabled:opacity-50"
+						className="bg-green-500 shadow-md grow text-white px-4 py-2 rounded hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
 					>
 						Execute
 					</button>
@@ -110,4 +107,4 @@ const CodeArea = () => {
 	);
 };
 
-export default CodeArea;
+export default Options;

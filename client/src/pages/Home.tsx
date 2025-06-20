@@ -16,9 +16,9 @@ const Home = () => {
 	}, [setArray]);
 
 	return (
-		<div className="flex flex-col gap-2 h-screen w-full">
+		<div className="flex flex-col gap-4 h-screen w-full">
 			<Header />
-			<div className="flex h-[75%] w-[95%] gap-2 justify-center self-center">
+			<div className="flex flex-grow h-[75%] w-[95%] gap-4 justify-center self-center">
 				<Visualization />
 				<Options />
 			</div>

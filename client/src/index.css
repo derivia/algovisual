@@ -7,8 +7,9 @@
 	font-weight: 400;
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
-	background: linear-gradient(to bottom, #e3f2fd, #bbdefb);
-	--accent: #284273;
+	background: linear-gradient(to bottom, #1f2937, #111827);
+	color: #d1d5db; /* Light gray text */
+	--accent: #38bdf8; /* A bright blue */
 }
 
 * {

@@ -1,11 +1,12 @@
-FROM node:current-alpine
+FROM node:22.12.0-alpine
+RUN npm install -g pnpm
 
 WORKDIR /usr/app
 
-COPY package*.json ./
+COPY package.json pnpm-lock.yaml ./
 
-RUN npm install
+RUN pnpm install --frozen-lockfile
 
 COPY . .
 
-CMD sh -c "npm run dev"
+CMD ["pnpm", "dev"]
