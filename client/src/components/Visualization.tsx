@@ -6,7 +6,7 @@ const VisualizationArea = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const containerRef = useRef<HTMLDivElement>(null);
 	const array = useAtomValue(arrayAtom);
-	const barColor = "#38bdf8";
+	const barColor = "#3B82F6";
 
 	useEffect(() => {
 		const canvas = canvasRef.current;
@@ -48,7 +48,7 @@ const VisualizationArea = () => {
 		<div ref={containerRef} className="w-[65%] h-full relative">
 			<canvas
 				ref={canvasRef}
-				className="w-full h-full bg-gray-800 shadow-lg p-2 rounded-lg border border-gray-700"
+				className="w-full h-full bg-white border border-gray-200 p-2 rounded-lg"
 				style={{ display: "block" }}
 			/>
 		</div>

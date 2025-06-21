@@ -14,7 +14,7 @@ const Slider = ({ tabIndex, value, onChangeFunction }: SliderProps) => {
 			tabIndex={tabIndex}
 			value={value}
 			onChange={(e) => onChangeFunction(Number(e.target.value))}
-			className="p-2 bg-gray-700 accent-sky-400 w-full h-2 rounded-lg appearance-none cursor-pointer"
+			className="p-2 bg-blue-400 accent-sky-400 w-full h-2 rounded-lg appearance-none cursor-pointer"
 		/>
 	);
 };

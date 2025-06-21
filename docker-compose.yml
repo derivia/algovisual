@@ -1,15 +1,9 @@
 services:
-  ui-visualgo:
+  ui-algovisual:
+    container_name: ui-algovisual
     build:
       context: ./client
       dockerfile: Dockerfile
-    container_name: ui-visualgo
-    environment:
-      NODE_ENV: development
-    ports:
-      - "5174:5174"
-    networks:
-      - visualgo-network
 networks:
-  visualgo-network:
+  default:
     driver: bridge

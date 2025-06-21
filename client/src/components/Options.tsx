@@ -45,11 +45,11 @@ const Options = () => {
 	};
 
 	return (
-		<div className="w-[25%] rounded-lg shadow-lg bg-gray-800 border border-gray-700 text-lg p-4">
-			<div className="flex w-full flex-col gap-5">
+		<div className="w-[25%] rounded-lg bg-white border border-gray-200 p-6 flex flex-col gap-6">
+			<div className="flex flex-col gap-4">
 				<div className="flex flex-col">
-					<label className="text-gray-300">
-						Bars: <span>{arraySize}</span>
+					<label className="text-gray-700 text-base font-medium mb-1">
+						Bars: <span className="font-normal">{arraySize}</span>
 					</label>
 					<Slider
 						tabIndex={1}
@@ -57,51 +57,59 @@ const Options = () => {
 						value={arraySize}
 					/>
 				</div>
-				<label className="text-gray-300">Speed</label>
-				<select
-					value={speed}
-					onChange={(e) => setSpeed(Number(e.target.value))}
-					className="p-2 bg-gray-700 text-gray-300 rounded hover:cursor-pointer hover:bg-gray-600 border border-gray-600"
-				>
-					<option value="500">Slow</option>
-					<option value="100">Medium</option>
-					<option value="10">Fast</option>
-				</select>
-				<label className="text-gray-300">Algorithm</label>
-				<select
-					value={algorithm}
-					onChange={(e) =>
-						setAlgorithm(
-							e.target.value as
-								| "bubbleSort"
-								| "insertionSort"
-								| "quickSort"
-								| "mergeSort",
-						)
-					}
-					className="p-2 bg-gray-700 text-gray-300 rounded hover:cursor-pointer hover:bg-gray-600 border border-gray-600"
-				>
-					<option value="bubbleSort">Bubble Sort</option>
-					<option value="insertionSort">Insertion Sort</option>
-					<option value="quickSort">Quick Sort</option>
-					<option value="mergeSort">Merge Sort</option>
-				</select>
-				<div className="flex flex-col mx-4 gap-4 mt-4">
-					<button
-						onClick={generateArray}
-						disabled={isRunning}
-						className="bg-sky-500 shadow-md grow text-white px-4 py-2 rounded hover:bg-sky-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+				<div className="flex flex-col">
+					<label className="text-gray-700 text-base font-medium mb-1">
+						Speed
+					</label>
+					<select
+						value={speed}
+						onChange={(e) => setSpeed(Number(e.target.value))}
+						className="p-2 bg-gray-100 text-gray-700 rounded-md border border-gray-300 hover:bg-gray-200 cursor-pointer text-base"
 					>
-						Generate
-					</button>
-					<button
-						onClick={handleExecute}
-						disabled={isRunning}
-						className="bg-green-500 shadow-md grow text-white px-4 py-2 rounded hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-					>
-						Execute
-					</button>
+						<option value="500">Slow</option>
+						<option value="100">Medium</option>
+						<option value="10">Fast</option>
+					</select>
 				</div>
+				<div className="flex flex-col">
+					<label className="text-gray-700 text-base font-medium mb-1">
+						Algorithm
+					</label>
+					<select
+						value={algorithm}
+						onChange={(e) =>
+							setAlgorithm(
+								e.target.value as
+									| "bubbleSort"
+									| "insertionSort"
+									| "quickSort"
+									| "mergeSort",
+							)
+						}
+						className="p-2 bg-gray-100 text-gray-700 rounded-md border border-gray-300 hover:bg-gray-200 cursor-pointer text-base"
+					>
+						<option value="bubbleSort">Bubble Sort</option>
+						<option value="insertionSort">Insertion Sort</option>
+						<option value="quickSort">Quick Sort</option>
+						<option value="mergeSort">Merge Sort</option>
+					</select>
+				</div>
+			</div>
+			<div className="flex flex-col gap-4 mt-2">
+				<button
+					onClick={generateArray}
+					disabled={isRunning}
+					className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-base font-medium"
+				>
+					Generate
+				</button>
+				<button
+					onClick={handleExecute}
+					disabled={isRunning}
+					className="bg-indigo-400 text-white px-4 py-2 rounded-md hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-base font-medium"
+				>
+					Execute
+				</button>
 			</div>
 		</div>
 	);
